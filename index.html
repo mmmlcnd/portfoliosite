@@ -17,100 +17,102 @@
 <link rel="icon" href="images/logo.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/background.js"></script>
+<script src="js/gitem-animation.js"></script>
+
+<style>
+	.gitem {
+	  position: relative;
+	  display: inline-block;
+	}
+	
+	.tooltip {
+	  display: none;
+	  position: absolute;
+	  top: 30%; /* アイテムの横に表示 */
+	  left: -10%;
+	  transform: translateX(-50%);
+	  background-color: rgba(139, 93, 204, 0.8);
+	  color: #fff;
+	  padding: 8px 12px;
+	  border-radius: 6px;
+	  white-space: nowrap;
+	  font-size: 14px;
+	  z-index: 10;
+	  pointer-events: none; /* 吹き出しの上にマウスが乗っても無視 */
+	}
+	
+	.gitem:hover .tooltip {
+	  display: block;
+	}
+	</style>
+	
+
 </head>
 
 <body id="top">
 	<canvas id="bubbleCanvas"></canvas>
 	<div id="wrap" class="content">
 		<header>
-			<div id="app">
-				<h1 ><span id="ityped"></span></h1>
-			</div><!--/#app-->
+			<h1 class="ballet-heading">Murai Mayu's<span class="heading-bigger">Portfolio</span></h1>
+			<h2>村井麻優のポートフォリオサイト</h2>
+			<aside id="sideMenu">
+				<input type="checkbox" id="drawer-checkbox">
+				<label id="drawer-icon" for="drawer-checkbox">
+					<span></span>
+				</label>
+				<label id="drawer-close" for="drawer-checkbox"></label>
+				<nav id="gNavi">
+					<ul class="menuCont">
+						<li><a href="index.html">Top</a></li>
+						<li class="miniImage01"><a href="https://mmewandii.stars.ne.jp/wp/" target="_blank" rel="noopener noreferrer">WordPress</a></li>
+						<li class="miniImage02"><a href="graphic.html">Graphic</a></li>
+						<li class="miniImage03"><a href="aboutm.html">About Me</a></li>
+					</ul>
+				</nav>
+			</aside>
 		</header>
 		<main>
 			<div id="contentsWrap">
 				<div class="thumbnailArea">
 					<div class="gitem item">
 						<a href="https://mmewandii.stars.ne.jp/wp/" target="_blank" rel="noopener noreferrer">
-							<img src="images/wordpressthumbnail.png" alt="ショップカードMクラブ" class="miniImage01">
-							<h3 class="itemTitle">WordPress</h3></a>
+							<img src="images/wordpressthumbnail.png" alt="WordPressサイトサムネイル" class="miniImage01">
+							<h3 class="itemTitle">WordPress</h3>
+						</a>
+						<div class="tooltip">WordPressで作ったサイト</div>
 					</div><!--/.gitem-->
 					<div class="gitem item">
 						<a href="graphic.html">
-						<img src="images/graphicthumbnail.png" alt="ブランドロゴ斜陽舎" class="miniImage02">
-						<h3 class="itemTitle">Graphic</h3></a>
+							<img src="images/graphicthumbnail.png" alt="グラフィック作品サムネイル" class="miniImage02">
+							<h3 class="itemTitle">Graphic</h3>
+						</a>
+						<div class="tooltip">イラレ・フォトショ使用画像</div>
 					</div><!--/.gitem-->
 					<div class="gitem item">
 						<a href="aboutm.html">
-						<img src="images/personthumbnail.png" alt="グラフィック作品" class="miniImage03">
+						<img src="images/personthumbnail.png" alt="私についてサムネイル" class="miniImage03">
 						<h3 class="itemTitle">About Me</h3></a>
+						<div class="tooltip">経歴・使用言語など</div>
 					</div><!--/.gitem-->
 				</div><!--/.thumbnailArea-->
 				<div class="showArea">
 					<div id="showArea">
-						<img src="images/shopcard600.png" alt="ショップカードMクラブ" >
+						<img src="images/mewandithumbnail500.png" alt="" >
 					</div><!--/#showArea-->
 				</div>
 			</div><!--/#contentsWrap-->
 		</main>
 		<footer>
 			<p id="pageTop"><a href="#top"><img src="images/logo.png" alt="ページトップ"></a></p>
-			<p class="copyright"><small>&copy;2025 Murai Mayu All Rights Reserved.</small></p>
+			<p class="copyright"><small>&copy;2025</small></p>
 		</footer>
-		<aside id="sideMenu">
-			<input type="checkbox" id="drawer-checkbox">
-			<label id="drawer-icon" for="drawer-checkbox">
-				<span></span>
-			</label>
-			<label id="drawer-close" for="drawer-checkbox"></label>
-			<nav id="gNavi">
-				<ul class="menuCont">
-					<li><a href="index.html">Top</a></li>
-					<li><a href="https://mmewandii.stars.ne.jp/wp/" target="_blank" rel="noopener noreferrer">WordPress</a></li>
-					<li><a href="graphic.html">Graphic</a></li>
-					<li><a href="aboutm.html">About Me</a></li>
-				</ul>
-			</nav>
-		</aside>
 	</div><!--/#wrap-->
-
-<script src="https://unpkg.com/ityped@1.0.2"></script>
-<script>
-    ityped.init(document.querySelector("#ityped"), {
-		showCursor: false,
-		strings: ["Portfolio"], 
-		startDelay: 200,                                                  //アニメーション開始までの遅延、大きいほど遅れる
-		typeSpeed: 100,                                                   //表示させるスピード、大きいほどゆっくり
-		loop: false,                                                      //ループ
-		backSpeed:  80,                                                   //戻るスピード
-		backDelay:  150,                                                  //戻る時間指定
-		showCursor: false,                                                 //カーソル表示
-		cursorChar: "|",
-    })
-</script>
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-	  const items = document.querySelectorAll('.gitem');
-  
-	  const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-		  if (entry.isIntersecting) {
-			entry.target.classList.add('animate');
-			observer.unobserve(entry.target); // 一度だけアニメーションさせたい場合
-		  }
-		});
-	  }, {
-		threshold: 0.1
-	  });
-  
-	  items.forEach(item => {
-		observer.observe(item);
-	  });
-	});
-  </script>
-  
 </body>
 </html>

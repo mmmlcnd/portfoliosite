@@ -1,21 +1,5 @@
 //JavaScript Document
 
-//$(function(){
-//	
-//	$(".miniImage01").mouseover(function(){
-//		$("#contentsWrap").css("background-image", "url(images/wordpressthumbnail.png)");
-//	});
-//	
-//	$(".miniImage02").mouseover(function(){
-//		$("#contentsWrap").css("background-image", "url(images/graphicthumbnail.png)");
-//	});
-//	
-//	$(".miniImage03").mouseover(function(){
-//		$("#contentsWrap").css("background-image", "url(images/personthumbnail.png)");
-//	});
-//	
-//});
-
 $(function(){
 
 	$(".miniImage01").mouseover(function(){
