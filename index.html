@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="村井麻優のポートフォリオサイト。職歴や仕事への思い、作品を載せています。">
+<meta name="author" content="Mクラブ">
+<meta name="format-detection" content="email=no,telephone=no,address=no">
+<title>村井麻優のポートフォリオ</title>
+	
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/background.css" rel="stylesheet">
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link rel="icon" href="images/logo.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/background.js"></script>
+</head>
+
+<body id="top">
+	<canvas id="bubbleCanvas"></canvas>
+	<div id="wrap" class="content">
+		<header>
+			<div id="app">
+				<h1 ><span id="ityped"></span></h1>
+			</div><!--/#app-->
+		</header>
+		<main>
+			<div id="contentsWrap">
+				<div class="thumbnailArea">
+					<div class="gitem item">
+						<a href="https://mmewandii.stars.ne.jp/wp/" target="_blank" rel="noopener noreferrer">
+							<img src="images/wordpressthumbnail.png" alt="ショップカードMクラブ" class="miniImage01">
+							<h3 class="itemTitle">WordPress</h3></a>
+					</div><!--/.gitem-->
+					<div class="gitem item">
+						<a href="graphic.html">
+						<img src="images/graphicthumbnail.png" alt="ブランドロゴ斜陽舎" class="miniImage02">
+						<h3 class="itemTitle">Graphic</h3></a>
+					</div><!--/.gitem-->
+					<div class="gitem item">
+						<a href="aboutm.html">
+						<img src="images/personthumbnail.png" alt="グラフィック作品" class="miniImage03">
+						<h3 class="itemTitle">About Me</h3></a>
+					</div><!--/.gitem-->
+				</div><!--/.thumbnailArea-->
+				<div class="showArea">
+					<div id="showArea">
+						<img src="images/shopcard600.png" alt="ショップカードMクラブ" >
+					</div><!--/#showArea-->
+				</div>
+			</div><!--/#contentsWrap-->
+		</main>
+		<footer>
+			<p id="pageTop"><a href="#top"><img src="images/logo.png" alt="ページトップ"></a></p>
+			<p class="copyright"><small>&copy;2025 Murai Mayu All Rights Reserved.</small></p>
+		</footer>
+		<aside id="sideMenu">
+			<input type="checkbox" id="drawer-checkbox">
+			<label id="drawer-icon" for="drawer-checkbox">
+				<span></span>
+			</label>
+			<label id="drawer-close" for="drawer-checkbox"></label>
+			<nav id="gNavi">
+				<ul class="menuCont">
+					<li><a href="index.html">Top</a></li>
+					<li><a href="https://mmewandii.stars.ne.jp/wp/" target="_blank" rel="noopener noreferrer">WordPress</a></li>
+					<li><a href="graphic.html">Graphic</a></li>
+					<li><a href="aboutm.html">About Me</a></li>
+				</ul>
+			</nav>
+		</aside>
+	</div><!--/#wrap-->
+
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<script>
+    ityped.init(document.querySelector("#ityped"), {
+		showCursor: false,
+		strings: ["Portfolio"], 
+		startDelay: 200,                                                  //アニメーション開始までの遅延、大きいほど遅れる
+		typeSpeed: 100,                                                   //表示させるスピード、大きいほどゆっくり
+		loop: false,                                                      //ループ
+		backSpeed:  80,                                                   //戻るスピード
+		backDelay:  150,                                                  //戻る時間指定
+		showCursor: false,                                                 //カーソル表示
+		cursorChar: "|",
+    })
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	  const items = document.querySelectorAll('.gitem');
+  
+	  const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+		  if (entry.isIntersecting) {
+			entry.target.classList.add('animate');
+			observer.unobserve(entry.target); // 一度だけアニメーションさせたい場合
+		  }
+		});
+	  }, {
+		threshold: 0.1
+	  });
+  
+	  items.forEach(item => {
+		observer.observe(item);
+	  });
+	});
+  </script>
+  
+</body>
+</html>

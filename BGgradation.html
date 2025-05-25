@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>上品だけど楽しい背景（滑らかアニメーション版）</title>
+  <style>
+    :root {
+      --beige-start: 229, 213, 197;
+      --beige-end: 241, 228, 211;
+
+      --rose-start: 180, 148, 158;
+      --rose-end: 214, 176, 186;
+
+      --bronze-start: 164, 124, 108;
+      --bronze-end: 198, 168, 152;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+
+      background:
+        radial-gradient(circle at 25% 35%, rgba(var(--beige-r), var(--beige-g), var(--beige-b), 0.8), transparent 60%),
+        radial-gradient(circle at 75% 65%, rgba(var(--rose-r), var(--rose-g), var(--rose-b), 0.8), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(var(--bronze-r), var(--bronze-g), var(--bronze-b), 0.8), transparent 60%);
+      background-size: cover;
+      animation: softShift 30s ease-in-out infinite alternate;
+    }
+
+    /* 変数のRGB値を変化させる */
+    @keyframes softShift {
+      0% {
+        --beige-r: 229; --beige-g: 213; --beige-b: 197;
+        --rose-r: 180; --rose-g: 148; --rose-b: 158;
+        --bronze-r: 164; --bronze-g: 124; --bronze-b: 108;
+      }
+      100% {
+        --beige-r: 241; --beige-g: 228; --beige-b: 211;
+        --rose-r: 214; --rose-g: 176; --rose-b: 186;
+        --bronze-r: 198; --bronze-g: 168; --bronze-b: 152;
+      }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #3d2f2f;
+      padding-top: 30vh;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bubbleCanvas"></canvas>
+  <div class="content">
+    <h1>やわらかで上品な背景</h1>
+    <p>色も泡も、ちょっとだけ遊び心を添えて。</p>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('bubbleCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // 彩度と透明度を少し上げて、しっかり見えるように
+    const colors = [
+      'rgba(255, 235, 150, 0.35)',  // やさしい黄色
+      'rgba(255, 215, 100, 0.3)',   // ハニー系
+      'rgba(200, 200, 200, 0.25)',  // 柔らかいグレー
+      'rgba(240, 230, 200, 0.3)',   // グレージュ
+      'rgba(255, 245, 200, 0.28)'   // ベージュホワイト
+    ];
+
+    class Bubble {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = 25 + Math.random() * 35;
+        this.speedX = (Math.random() - 0.5) * 0.15;
+        this.speedY = (Math.random() - 0.5) * 0.15;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (
+          this.x < -this.radius || this.x > width + this.radius ||
+          this.y < -this.radius || this.y > height + this.radius
+        ) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    const bubbles = Array.from({ length: 40 }, () => new Bubble());
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      for (const bubble of bubbles) {
+        bubble.update();
+        bubble.draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
+

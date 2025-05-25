@@ -1,0 +1,52 @@
+:root {
+    --beige-start: 229, 213, 197;
+    --beige-end: 241, 228, 211;
+  
+    --rose-start: 180, 148, 158;
+    --rose-end: 214, 176, 186;
+  
+    --bronze-start: 164, 124, 108;
+    --bronze-end: 198, 168, 152;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  
+    background:
+      radial-gradient(circle at 25% 35%, rgba(var(--beige-r), var(--beige-g), var(--beige-b), 0.8), transparent 60%),
+      radial-gradient(circle at 75% 65%, rgba(var(--rose-r), var(--rose-g), var(--rose-b), 0.8), transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(var(--bronze-r), var(--bronze-g), var(--bronze-b), 0.8), transparent 60%);
+    background-size: cover;
+    animation: softShift 30s ease-in-out infinite alternate;
+  }
+  
+  /* 変数のRGB値を変化させる */
+  @keyframes softShift {
+    0% {
+      --beige-r: 229; --beige-g: 213; --beige-b: 197;
+      --rose-r: 180; --rose-g: 148; --rose-b: 158;
+      --bronze-r: 164; --bronze-g: 124; --bronze-b: 108;
+    }
+    100% {
+      --beige-r: 241; --beige-g: 228; --beige-b: 211;
+      --rose-r: 214; --rose-g: 176; --rose-b: 186;
+      --bronze-r: 198; --bronze-g: 168; --bronze-b: 152;
+    }
+  }
+  
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  
