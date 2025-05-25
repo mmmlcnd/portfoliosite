@@ -26,38 +26,9 @@
 <script src="js/background.js"></script>
 <script src="js/gitem-animation.js"></script>
 
-<style>
-	.gitem {
-	  position: relative;
-	  display: inline-block;
-	}
-	
-	.tooltip {
-	  display: none;
-	  position: absolute;
-	  top: 30%; /* アイテムの横に表示 */
-	  left: -10%;
-	  transform: translateX(-50%);
-	  background-color: rgba(139, 93, 204, 0.8);
-	  color: #fff;
-	  padding: 8px 12px;
-	  border-radius: 6px;
-	  white-space: nowrap;
-	  font-size: 14px;
-	  z-index: 10;
-	  pointer-events: none; /* 吹き出しの上にマウスが乗っても無視 */
-	}
-	
-	.gitem:hover .tooltip {
-	  display: block;
-	}
-	</style>
-	
-
 </head>
 
 <body id="top">
-	<canvas id="bubbleCanvas"></canvas>
 	<div id="wrap" class="content">
 		<header>
 			<h1 class="ballet-heading">Murai Mayu's<span class="heading-bigger">Portfolio</span></h1>

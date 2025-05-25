@@ -55,13 +55,11 @@ span {
 	max-width: 1280px;
 	height: 100vh;
 	margin: 0 auto;
-	/* background-color: antiquewhite; */
 }
 
 .ballet-heading {
 	font-family: "Ballet", cursive;
 	font-optical-sizing: auto;
-	font-weight: 400;
 	font-style: normal;
 }
 
@@ -109,7 +107,7 @@ main {
 	height: 750px;
 	display: flex;
 	background-color: #fff;
-	margin: 100px 0 0 0;
+	margin: 150px 0 0 0 ;
 }
 
 #contentsWrap {
@@ -122,7 +120,6 @@ main {
 }
 
 .thumbnailArea {
-	/* background-color: #ff8; */
 	width: 20%;
 	height: 100%;
 	padding: 200px 0 0 0;
@@ -179,12 +176,39 @@ main {
 footer{
     position: absolute;
 	left: -300px;
-    bottom: 70px;
+    bottom: 120px;
 	height: 60px; /* 任意の高さ */
 }
 
 footer .copyright {
 	font-size: 0.9rem;
+}
+
+/* 吹き出し */
+
+.gitem {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip {
+	display: none;
+	position: absolute;
+	top: 30%; /* アイテムの横に表示 */
+	left: -10%;
+	transform: translateX(-50%);
+	background-color: #c586fb;
+	color: #fff;
+	padding: 8px 12px;
+	border-radius: 6px;
+	white-space: nowrap;
+	font-size: 14px;
+	z-index: 10;
+	pointer-events: none; /* 吹き出しの上にマウスが乗っても無視 */
+}
+
+.gitem:hover .tooltip {
+	display: block;
 }
 
 /* 
@@ -203,17 +227,17 @@ About Me*/
 
 .resumeContainer {
 	width: 70%;
-	height: 200px;
+	padding: 80px 30px;	
 	display: grid;
 	grid-template-columns: 1fr; /* ←1列だけに */
 	gap: 30px;
-	padding: 80px 30px;
-	
 }
 
 .textArea {
 	display: flex;
-	/* background-color: aqua; */
+	align-items: center; 
+	background-color: bisque;
+	border-radius: 30px;
 }
 
 .circle-heading {
@@ -224,7 +248,7 @@ About Me*/
 	align-items: center;       /* 縦中央揃え */
 	justify-content: center;   /* 横中央揃え */
 	font-size: 18px;
-	margin: 20px;
+	margin: 0 40px ;
 	text-align: center;
 	background-color: #c586fb; /* メインカラー（青紫系） */
 	color: #ffffff;   
