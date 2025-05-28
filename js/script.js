@@ -1,5 +1,6 @@
 //JavaScript Document
 
+// TOPページの画像入れ替え
 $(function(){
 
 	$(".miniImage01").mouseover(function(){
@@ -16,7 +17,7 @@ $(function(){
 
 });
 
-
+// Designページの画像入れ替え
 $(function(){
 	
 	$(".gminiImage01").mouseover(function(){
@@ -32,34 +33,38 @@ $(function(){
 	});
 	
 });
+//---------------------
 
-$(function(){
-	$(".js-menu__item__link").each(function(){
-		$(this).on("click",function(){
-			$(this).toggleClass("on");
-			$("+.submenu",this).slideToggle()
-			return false;
-		});
+
+// h3アニメーション
+document.addEventListener("DOMContentLoaded", function () {
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+	if (entry.isIntersecting) {
+		entry.target.classList.add('visible');
+	} else {
+	entry.target.classList.remove('visible');
+	}
 	});
+}, {
+	threshold: 0.5
 });
 
-jQuery(function ($) {
-$('.js-accordion-title').on('click', function () {
-  /*クリックでコンテンツを開閉*/
-  $(this).next().slideToggle(200);
-  /*矢印の向きを変更*/
-  $(this).toggleClass('open', 200);
+document.querySelectorAll('.animated-heading').forEach(el => {
+	observer.observe(el);
 });
-
 });
+//---------------------
 
+
+// メニュー
 $(function(){
 	//drawer
-	var checkArea=$("#drawer-checkbox");//チェック判断するラジオボタン
-	var tap=$("#drawer-icon");//ドロワーメニュー
-	var gNaviArea=$("#gNavi");//グローバルナビゲーションエリア
-	var pageLink=$("#gNavi ul li a");//ページ内リンク
-	var closeArea=$("#drawer-close");//クローズエリア
+	let checkArea=$("#drawer-checkbox");//チェック判断するラジオボタン
+	let tap=$("#drawer-icon");//ドロワーメニュー
+	let gNaviArea=$("#gNavi");//グローバルナビゲーションエリア
+	let pageLink=$("#gNavi ul li a");//ページ内リンク
+	let closeArea=$("#drawer-close");//クローズエリア
 	
 	//タップをしたらクラスをつけたりはずしたりする
 	$(tap).on("click",function(){
@@ -102,13 +107,6 @@ $(function(){
 			$("#pageTop").fadeOut();
 		}
 	});
-	
-	//smoothrollover(画像変わる部分)
-	$('a img').hover(function(){
-			$(this).attr('src', $(this).attr('src').replace('_off', '_on'));
-		}, function(){
-			if (!$(this).hasClass('currentPage')) {
-			$(this).attr('src', $(this).attr('src').replace('_on', '_off'));
-		}
-	});
+
 });
+//---------------------
