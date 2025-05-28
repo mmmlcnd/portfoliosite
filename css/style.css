@@ -82,6 +82,10 @@ h2 {
 	left: 10px;
 }
 
+h3 {
+	font-size: 30px;
+}
+
 .heading-bigger {
 	font-size: 80px;
 	padding-left: 30px;
@@ -105,37 +109,48 @@ nav {
 
 main {
 	width: 100%;
-	/* height: 750px; */
+	height: 100%;
 	display: flex;
-	/* background-color: #fff; */
-	margin: 150px 0 0 0 ;
+	margin: 150px 0 0 0 ; /* h1とnavの位置 */
 }
 
-    .fixed-box {
-      position: fixed;
-      top: 525px;
-      left: 50%;
-      transform: translate(-50%, -50%);
+.fixed-box {
+	position: fixed;
+	top: 525px;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	width: 1280px;
 	height: 750px;
-      background-color: white;
-      z-index: -1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+	background-color: white;
+	z-index: -1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 
 #contentsWrap {
-	/* width: 100%; */
-	/* height: 100%; */
+	width: 100%;
 	display: flex;
 	justify-content: center;
-	flex-wrap: wrap;
-/*	background-size:cover,0 0;*/
+	flex-direction: column;  
+	gap: 10px; 
 }
 
-.thumbnailArea {
+.firstviewArea,
+.contentArea
+ {
+	width: 100%;
+	margin: 0 0 180px 0;
+	/* background-color: cadetblue; */
+}
+
+.firstviewArea {
+	display: flex;
+}
+
+
+.top-thumbnailArea {
 	width: 20%;
 	height: 100%;
 	padding: 200px 0 0 0;
@@ -189,6 +204,63 @@ main {
 	width: 400px;
 }
 
+h3 {
+	margin: 0 0 0 80px;
+}
+
+.thumbnailArea {
+	display: flex;
+	justify-content: center; 
+}
+
+.thumbnailItem{
+	margin: 40px 50px
+}
+
+/* 
+About Me*/
+
+.resumeContainer {
+	width: 100%;
+	padding:  50px 0;	
+	display: grid;
+	grid-template-columns: max-content;
+	gap: 30px; 	
+	justify-content: center;
+	/* background-color: darkgrey; */
+}
+
+.textArea {
+	display: flex;
+	align-items: center; 
+	/* background-color: bisque; */
+}
+
+.circle-heading {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;       /* 縦中央揃え */
+	justify-content: center;   /* 横中央揃え */
+	font-size: 18px;
+	margin: 0 40px ;
+	text-align: center;
+	background-color: #c586fb; /* メインカラー（青紫系） */
+	color: #ffffff;   
+
+}
+
+.description {
+	width: 80%;
+	text-align: left;
+	display: flex;
+	align-items: center; 
+}
+
+/* 
+footer */
+
 footer{
     position: absolute;
 	left: 0;
@@ -237,45 +309,6 @@ graphicPage */
 	height: 100%;            /* 親要素に高さがあることが前提です */
 }
 
-/* 
-About Me*/
-
-.resumeContainer {
-	width: 70%;
-	padding: 80px 30px;	
-	display: grid;
-	grid-template-columns: 1fr; /* ←1列だけに */
-	gap: 30px;
-}
-
-.textArea {
-	display: flex;
-	align-items: center; 
-	background-color: bisque;
-	border-radius: 30px;
-}
-
-.circle-heading {
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;       /* 縦中央揃え */
-	justify-content: center;   /* 横中央揃え */
-	font-size: 18px;
-	margin: 0 40px ;
-	text-align: center;
-	background-color: #c586fb; /* メインカラー（青紫系） */
-	color: #ffffff;   
-
-}
-
-.description {
-	width: 80%;
-	text-align: left;
-	display: flex;
-	align-items: center; 
-}
 
 
 
