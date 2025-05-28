@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>逆パララックス効果（背景固定）</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    /* 背景固定セクション */
+    .fixed-background {
+      background-image: url("https://picsum.photos/id/1018/1920/1080");
+      background-attachment: fixed;
+      /* background-size: cover; */
+      /* background-position: center; */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      text-shadow: 0 0 5px black;
+    }
+
+    /* 通常のスクロールコンテンツ */
+    .scroll-section {
+      background: #f0f0f0;
+      color: #333;
+      padding: 100px 20px;
+      margin: 80px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fixed-background">
+    背景は固定、スクロールしてみてください
+  </div>
+
+  <div class="scroll-section">
+    <h2>スクロールコンテンツ</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. 
+      Cras venenatis euismod malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    <p>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+      Proin ut sapien a libero scelerisque placerat. Nunc sagittis eros nec sapien ultricies, vel convallis elit tempus.
+    </p>
+  </div>
+
+  <div class="fixed-background">
+    もう一度背景固定
+  </div>
+
+  <div class="scroll-section">
+    <p>下のほうのテキストセクションです。</p>
+  </div>
+
+</body>
+</html>

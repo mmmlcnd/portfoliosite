@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSSだけのパララックス</title>
+  <style>
+
+    /* セクション共通スタイル */
+    section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    /* パララックス背景 */
+    .parallax {
+      background-image: url("https://picsum.photos/id/1015/1920/1080");
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="normal">
+    <div>ここは普通のセクション</div>
+  </section>
+
+  <section class="parallax">
+    <div>ここがパララックスセクション</div>
+  </section>
+
+  <section class="light">
+    <div>ここも普通のセクション</div>
+  </section>
+
+</body>
+</html>
