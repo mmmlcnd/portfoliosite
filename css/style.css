@@ -7,9 +7,10 @@
 
 body {
 	color: #303437;
-	line-height: 1.5;
 	font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "serif";
-	position: relative;/* footerの位置調整用 */
+	position: relative;
+	line-height: 1.5;
+	min-height: 100vh;
 }
 
 a:link,
@@ -53,7 +54,7 @@ span {
 	flex-wrap: wrap;
 	width: 100%;
 	max-width: 1280px;
-	height: 100vh;
+	min-height: 100vh;
 	margin: 0 auto;
 }
 
@@ -174,7 +175,10 @@ main {
 }
 
 footer{
-    position: absolute;
+    position: relative;
+}
+
+footer p {
 	left: -300px;
     bottom: 120px;
 	height: 60px; /* 任意の高さ */
