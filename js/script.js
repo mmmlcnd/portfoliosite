@@ -1,5 +1,61 @@
 //JavaScript Document
 
+//------------------------
+//Slick
+let isSliderActive = false;
+
+// 表示させたい画像（gitemマウスオーバーで使われる画像をここで定義）
+const responsiveSliderImages = [
+  'images/mewandithumbnail500.png',
+  'images/shopcard600.png',
+  'images/logo200.png'
+];
+
+function activateResponsiveImageSlider() {
+  const $showArea = $('.showArea');
+
+  if (window.innerWidth <= 820) {
+    if (!isSliderActive) {
+      // スライダー用HTMLを生成
+      const $slider = $('<div class="responsive-slider"></div>');
+      responsiveSliderImages.forEach(src => {
+        const $img = $('<div><img src="' + src + '" alt=""></div>');
+        $slider.append($img);
+      });
+
+      // 差し替え
+      $showArea.empty().append($slider);
+
+      // Slickでスライダー化
+      $slider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000
+      });
+
+      isSliderActive = true;
+    }
+  } else {
+    if (isSliderActive) {
+      // スライダー解除＋通常画像に戻す
+      $('.responsive-slider').slick('unslick').remove();
+      $showArea.html(`
+        <div id="showArea">
+          <img src="images/mewandithumbnail500.png" alt="">
+        </div>
+      `);
+      isSliderActive = false;
+    }
+  }
+}
+
+$(window).on('load resize', activateResponsiveImageSlider);
+//------------------------
+
+
 // TOPページの画像入れ替え
 $(function(){
 
