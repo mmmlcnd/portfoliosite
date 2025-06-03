@@ -480,6 +480,14 @@ graphicPage */
 /*tablet layout*/
 @media screen and (max-width:820px){
 
+	h1 {
+		color: #707070;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
 	.showArea {
 		margin: 0 auto;
 		padding-top: 100px;
@@ -600,13 +608,36 @@ graphicPage */
 }
 
 /* mobile & tablet layout*/
-@media screen and (max-width:768px) {
-	
+@media screen and (max-width:624px) {
 
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	h3 {
+		font-size: 1.4rem;
+	}
+
+	h4 {
+		font-size: 1.1rem;
+	}
+
+	.thumbnailArea {
+		width: 80%;
+	}
+
+	.textArea {
+		width: 350px;
+	}
+
+	.shortDescription {
+		text-align: center;
+	}
 
 }
 
 /* mobile & tablet layout*/
 @media screen and (max-width:599px) {
+	
 
 }
