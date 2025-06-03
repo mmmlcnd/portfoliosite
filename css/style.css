@@ -479,6 +479,30 @@ graphicPage */
 
 /*tablet layout*/
 @media screen and (max-width:820px){
+
+	.responsive-slider{
+		display: flex !important;
+		justify-content: center;
+	}
+		
+	
+
+
+	.slick-track {
+		background-color: #5b0d9f;
+		margin: 0 auto;
+	}
+
+	.responsive-slider img {
+		width: 100%;
+		max-width: 400px;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.top-thumbnailArea {
+		display: none;
+	}
 	
 	.contentArea {
 		/* background-color: #c586fb; */

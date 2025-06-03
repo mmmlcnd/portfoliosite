@@ -13,6 +13,9 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/background.css" rel="stylesheet">
 
+<!-- Slick CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <link rel="icon" href="images/logo.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
@@ -23,8 +26,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/script.js"></script>
-<script src="js/background.js"></script>
 <script src="js/gitem-animation.js"></script>
+
+<!-- Slick JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </head>
 
 <body id="top" class="background">
@@ -51,7 +57,7 @@
 		<main>
 			<div class="fixed-box"></div>
 			<div id="contentsWrap">
-				<section class="firstviewArea">
+				<section id="slider-target" class="firstviewArea">
 					<div class="top-thumbnailArea">
 						<div class="gitem item">
 							<a href="https://mmewandii.stars.ne.jp/wp/" target="_blank" rel="noopener noreferrer">
@@ -154,5 +160,63 @@
 			<p class="copyright"><small>&copy;2025</small></p>
 		</footer>
 	</div><!--/#wrap-->
+
+
+<script>
+let isSliderActive = false;
+
+// 表示させたい画像（gitemマウスオーバーで使われる画像をここで定義）
+const responsiveSliderImages = [
+  'images/mewandithumbnail500.png',
+  'images/shopcard600.png',
+  'images/logo200.png'
+];
+
+function activateResponsiveImageSlider() {
+  const $showArea = $('.showArea');
+
+  if (window.innerWidth <= 820) {
+    if (!isSliderActive) {
+      // スライダー用HTMLを生成
+      const $slider = $('<div class="responsive-slider"></div>');
+      responsiveSliderImages.forEach(src => {
+        const $img = $('<div><img src="' + src + '" alt=""></div>');
+        $slider.append($img);
+      });
+
+      // 差し替え
+      $showArea.empty().append($slider);
+
+      // Slickでスライダー化
+      $slider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+      });
+
+      isSliderActive = true;
+    }
+  } else {
+    if (isSliderActive) {
+      // スライダー解除＋通常画像に戻す
+      $('.responsive-slider').slick('unslick').remove();
+      $showArea.html(`
+        <div id="showArea">
+          <img src="images/mewandithumbnail500.png" alt="">
+        </div>
+      `);
+      isSliderActive = false;
+    }
+  }
+}
+
+$(window).on('load resize', activateResponsiveImageSlider);
+
+</script>
+
+	
 </body>
 </html>

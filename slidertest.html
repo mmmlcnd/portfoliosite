@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>レスポンシブ Slick スライダー</title>
+
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .card {
+      background-color: #ddd;
+      padding: 20px;
+      flex: 1 1 calc(33.33% - 16px);
+      box-sizing: border-box;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        display: block;
+      }
+
+      .card {
+        flex: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>レスポンシブ Slick スライダー</h1>
+
+  <div id="slider-target" class="card-container">
+    <div class="card">Item 1</div>
+    <div class="card">Item 2</div>
+    <div class="card">Item 3</div>
+    <div class="card">Item 4</div>
+    <div class="card">Item 5</div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Slick JS -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    let isSlickActive = false;
+
+    function checkWindowSize() {
+      const $slider = $('#slider-target');
+
+      if (window.innerWidth <= 768) {
+        if (!isSlickActive) {
+          $slider.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: true
+          });
+          isSlickActive = true;
+        }
+      } else {
+        if (isSlickActive) {
+          $slider.slick('unslick');
+          isSlickActive = false;
+        }
+      }
+    }
+
+    $(window).on('load resize', checkWindowSize);
+  </script>
+
+</body>
+</html>
