@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>レスポンシブモーダル</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      /* モーダルの背景 */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      /* モーダル表示切替 */
+      input[type='checkbox'] {
+        display: none;
+      }
+
+      #modal1:checked ~ .modal#m1 {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 12px;
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+      }
+
+      .modal-content img {
+        max-width: 100%;
+        border-radius: 8px;
+        height: auto;
+      }
+
+      h2 {
+        margin-top: 15px;
+        font-size: 1.4rem;
+      }
+
+      p {
+        color: #555;
+        margin: 10px 0;
+      }
+
+      button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      .close-btn {
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #666;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      /* レスポンシブ調整 */
+      @media (max-width: 480px) {
+        .modal-content {
+          padding: 15px;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        p {
+          font-size: 0.95rem;
+        }
+
+        button {
+          width: 100%;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- モーダルを開くボタン -->
+    <label for="modal1" class="btn">モーダルを開く</label>
+
+    <!-- チェックボックス制御 -->
+    <input type="checkbox" id="modal1" />
+
+    <!-- モーダル本体 -->
+    <div class="modal" id="m1">
+      <div class="modal-content">
+        <img src="https://via.placeholder.com/500x250" alt="例の画像" />
+        <h2>レスポンシブ対応のモーダル</h2>
+        <p>
+          これはレスポンシブ対応のモーダルウィンドウです。スマートフォン・タブレット・PCで最適に表示されます。
+        </p>
+        <button>詳しく見る</button>
+        <br />
+        <label for="modal1" class="close-btn">閉じる</label>
+      </div>
+    </div>
+  </body>
+</html>
