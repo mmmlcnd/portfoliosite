@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="村井麻優のポートフォリオサイト。職歴や仕事への思い、作品を載せています。"
+    />
+    <meta name="author" content="Mクラブ" />
+    <meta name="format-detection" content="email=no,telephone=no,address=no" />
+    <title>村井麻優のポートフォリオ</title>
+
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/background.css" rel="stylesheet" />
+
+    <!-- Slick CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/logo.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/gitem-animation.js"></script>
+
+    <!-- Slick JS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <style>
+      .clip-boxArea {
+        width: 100%;
+        padding: 100px;
+      }
+
+      .clip-box {
+        width: 500px; /* 表示したい範囲の幅 */
+        height: 100px; /* 表示したい範囲の高さ */
+        overflow: hidden; /* はみ出した部分を隠す */
+        position: relative;
+        /* border: 2px solid #ccc; */
+        margin: 30px 50px;
+      }
+
+      .clip-box img {
+        position: absolute;
+        top: -100px; /* 上に50pxずらす */
+        left: -200px; /* 左に80pxずらす */
+        width: auto;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body id="top" class="background">
+    <div id="wrap">
+      <header>
+        <h1 class="ballet-heading">
+          Murai Mayu's<span class="heading-bigger">Portfolio</span>
+        </h1>
+        <h2>村井麻優のポートフォリオサイト</h2>
+        <aside id="sideMenu">
+          <input type="checkbox" id="drawer-checkbox" />
+          <label id="drawer-icon" for="drawer-checkbox">
+            <span></span>
+          </label>
+          <label id="drawer-close" for="drawer-checkbox"></label>
+          <nav id="gNavi">
+            <ul class="menuCont">
+              <li><a href="index.html">Top</a></li>
+              <li class="miniImage01"><a href="#website">Web Site</a></li>
+              <li class="miniImage02"><a href="#design">Design</a></li>
+              <li class="miniImage03"><a href="#aboutme">About Me</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </header>
+      <main>
+        <!-- <div class="fixed-gradation-box-bigger"></div> -->
+        <!-- <div class="fixed-border-box"></div> -->
+        <!-- <div class="fixed-gradation-box-smaller"></div> -->
+
+        <div class="fixed-box"></div>
+        <div id="contentsWrap">
+          <section class="clip-boxArea">
+            <div class="clip-box">
+              <img src="images/websitethumbnail1.png" alt="一部表示する画像" />
+            </div>
+            <div class="clip-box">
+              <img src="images/websitethumbnail2.png" alt="一部表示する画像" />
+            </div>
+            <div class="clip-box">
+              <img src="images/websitethumbnail3.png" alt="一部表示する画像" />
+            </div>
+            <div class="clip-box">
+              <img src="images/designthumbnail1.png" alt="一部表示する画像" />
+            </div>
+            <div class="clip-box">
+              <img src="images/designthumbnail2.png" alt="一部表示する画像" />
+            </div>
+            <div class="clip-box">
+              <img src="images/designthumbnail3.png" alt="一部表示する画像" />
+            </div>
+          </section>
+          <section id="website" class="contentArea">
+            <h3 class="animated-heading">Web Site</h3>
+            <div class="thumbnailArea">
+              <div class="thumbnailItem">
+                <a
+                  href="https://mmewandii.stars.ne.jp/wp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="images/websitethumbnail1.png"
+                    alt="WordPressサイトサムネイル"
+                    class="miniImage01"
+                  />
+                  <h4 class="thumbnailTitle">WordPressサイト</h4>
+                </a>
+              </div>
+              <!--/.thumbnailItem-->
+              <div class="thumbnailItem">
+                <a href="graphic.html">
+                  <img
+                    src="images/websitethumbnail2.png"
+                    alt="カフェサイトサムネイル"
+                    class="miniImage02"
+                  />
+                  <h4 class="thumbnailTitle">カフェサイト</h4>
+                </a>
+              </div>
+              <!--/.thumbnailItem-->
+              <div class="thumbnailItem">
+                <a href="aboutm.html">
+                  <img
+                    src="images/websitethumbnail3.png"
+                    alt="ポートフォリオサイトサムネイル"
+                    class="miniImage03"
+                  />
+                  <h4 class="thumbnailTitle">ポートフォリオサイト</h4></a
+                >
+              </div>
+              <!--/.thumbnailItem-->
+            </div>
+          </section>
+          <section id="design" class="contentArea">
+            <h3 class="animated-heading">Design</h3>
+            <div class="thumbnailArea">
+              <div class="thumbnailItem">
+                <a
+                  href="https://mmewandii.stars.ne.jp/wp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="images/designthumbnail1.png"
+                    alt="WordPressサイトサムネイル"
+                    class="miniImage01"
+                  />
+                  <h4 class="thumbnailTitle">ショップカード</h4>
+                </a>
+              </div>
+              <!--/.thumbnailItem-->
+              <div class="thumbnailItem">
+                <a href="graphic.html">
+                  <img
+                    src="images/designthumbnail2.png"
+                    alt="グラフィック作品サムネイル"
+                    class="miniImage02"
+                  />
+                  <h4 class="thumbnailTitle">バナー</h4>
+                </a>
+              </div>
+              <!--/.thumbnailItem-->
+              <div class="thumbnailItem">
+                <a href="aboutm.html">
+                  <img
+                    src="images/designthumbnail3.png"
+                    alt="私についてサムネイル"
+                    class="miniImage03"
+                  />
+                  <h4 class="thumbnailTitle">デザインカンプ</h4></a
+                >
+              </div>
+              <!--/.thumbnailItem-->
+            </div>
+          </section>
+          <section id="aboutme" class="contentArea">
+            <h3 class="animated-heading">About Me</h3>
+            <div class="resumeContainer">
+              <section class="textArea">
+                <h3 class="circle-heading">経歴</h3>
+                <p class="description">
+                  職業訓練校でレスポンシブデザイン対応のWordPressオリジナルテーマ制作を学ぶ<br />
+                  WEB制作会社での企業実習においてコーディングやSEO対策も経験<br />
+                  前職はアプリディレクターとして、ネイティブ・WEBアプリケーション制作の<br />
+                  企画・要件定義からテストまでに関わる
+                </p>
+              </section>
+              <section class="textArea">
+                <h3 class="circle-heading">使用言語<br />DB</h3>
+                <p class="description shortDescription">
+                  HTML5・CSS3・JavaScript・jQuery・PHP・MySQL
+                </p>
+              </section>
+              <section class="textArea">
+                <h3 class="circle-heading">使用アプリ</h3>
+                <p class="description shortDescription">
+                  Illustrator・Photoshop・Dreamweaver・VS CODE
+                </p>
+              </section>
+            </div>
+          </section>
+        </div>
+        <!--/#contentsWrap-->
+      </main>
+      <footer>
+        <p id="pageTop">
+          <a href="#top"><img src="images/logo.png" alt="ページトップ" /></a>
+        </p>
+        <p class="copyright"><small>&copy;2025</small></p>
+      </footer>
+    </div>
+    <!--/#wrap-->
+  </body>
+</html>

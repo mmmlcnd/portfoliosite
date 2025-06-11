@@ -141,6 +141,48 @@ main {
   margin: 150px 0 0 0; /* h1とnavの位置 */
 }
 
+/* .fixed-gradation-box-bigger {
+  position: fixed;
+  top: 525px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1480px;
+  height: 950px;
+  background-color: rgb(253, 202, 214);
+  z-index: -3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed-border-box {
+  border: solid #806186 2px;
+  position: fixed;
+  top: 525px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1352px;
+  height: 822px;
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed-gradation-box-smaller {
+  position: fixed;
+  top: 525px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1350px;
+  height: 820px;
+  background-color: rgb(255, 224, 224);
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
 .fixed-box {
   position: fixed;
   top: 525px;

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自由サイズカード</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-6">
+    <h1 class="text-2xl font-bold mb-6">高さも横幅もバラバラなカード</h1>
+
+    <!-- インラインブロック表示（高さを揃えない） -->
+    <div class="text-left">
+      <!-- カード 1 -->
+      <div class="inline-block align-top bg-white p-4 m-2 rounded-lg shadow">
+        <h2 class="text-lg font-bold">小さいカード</h2>
+        <p>少しだけのテキスト。</p>
+      </div>
+
+      <!-- カード 2 -->
+      <div
+        class="inline-block align-top bg-white p-4 m-2 rounded-lg shadow max-w-xs"
+      >
+        <h2 class="text-lg font-bold">長いテキストのカード</h2>
+        <p>
+          このカードはとても長い説明を含んでいて、縦に長くなりますが、他のカードには影響しません。
+        </p>
+        <p>さらに段落を追加して高さを調整します。</p>
+        <p>さらに段落を追加して高さを調整します。</p>
+      </div>
+
+      <!-- カード 3 -->
+      <div
+        class="inline-block align-top bg-white p-4 m-2 rounded-lg shadow max-w-sm"
+      >
+        <h2 class="text-lg font-bold">画像付き</h2>
+        <img
+          src="https://via.placeholder.com/200x100"
+          class="my-2 rounded"
+          alt="画像"
+        />
+        <p>画像とテキストの組み合わせ。</p>
+      </div>
+
+      <!-- カード 4 -->
+      <div
+        class="inline-block align-top bg-white p-4 m-2 rounded-lg shadow max-w-md"
+      >
+        <h2 class="text-lg font-bold">もっと長いカード</h2>
+        <p>
+          これは非常に長いテキストを含むカードです。画像、リスト、リンクなどが入る想定です。
+          他のカードよりもはるかに高くなりますが、独立しています。
+          これは非常に長いテキストを含むカードです。画像、リスト、リンクなどが入る想定です。
+          他のカードよりもはるかに高くなりますが、独立しています。
+          これは非常に長いテキストを含むカードです。画像、リスト、リンクなどが入る想定です。
+          他のカードよりもはるかに高くなりますが、独立しています。
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -9,21 +9,94 @@
   --bronze-end: 198, 168, 152;
 }
 
-html, body {
+html,
+body {
   overflow: auto;
   position: relative;
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -1;
 
-  background:
-    radial-gradient(circle at 25% 35%, rgba(var(--beige-r), var(--beige-g), var(--beige-b), 0.8), transparent 60%),
-    radial-gradient(circle at 75% 65%, rgba(var(--rose-r), var(--rose-g), var(--rose-b), 0.8), transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(var(--bronze-r), var(--bronze-g), var(--bronze-b), 0.8), transparent 60%);
+  background: radial-gradient(
+      circle at 25% 35%,
+      rgba(var(--beige-r), var(--beige-g), var(--beige-b), 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgba(var(--rose-r), var(--rose-g), var(--rose-b), 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(var(--bronze-r), var(--bronze-g), var(--bronze-b), 0.8),
+      transparent 60%
+    );
+  background-size: cover;
+
+  animation: softShift 30s ease-in-out infinite alternate;
+}
+
+.fixed-gradation-box-bigger::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+      circle at 25% 35%,
+      rgba(var(--beige-r), var(--beige-g), var(--beige-b), 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgba(var(--rose-r), var(--rose-g), var(--rose-b), 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(var(--bronze-r), var(--bronze-g), var(--bronze-b), 0.8),
+      transparent 60%
+    );
+  background-size: cover;
+
+  animation: softShift 30s ease-in-out infinite alternate;
+}
+
+.fixed-gradation-box-smaller::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+      circle at 25% 35%,
+      rgba(var(--beige-r), var(--beige-g), var(--beige-b), 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgba(var(--rose-r), var(--rose-g), var(--rose-b), 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(var(--bronze-r), var(--bronze-g), var(--bronze-b), 0.8),
+      transparent 60%
+    );
   background-size: cover;
 
   animation: softShift 30s ease-in-out infinite alternate;
@@ -31,19 +104,31 @@ body::before {
 
 @keyframes softShift {
   0% {
-    --beige-r: 229; --beige-g: 213; --beige-b: 197;
-    --rose-r: 180; --rose-g: 148; --rose-b: 158;
-    --bronze-r: 164; --bronze-g: 124; --bronze-b: 108;
+    --beige-r: 229;
+    --beige-g: 213;
+    --beige-b: 197;
+    --rose-r: 180;
+    --rose-g: 148;
+    --rose-b: 158;
+    --bronze-r: 164;
+    --bronze-g: 124;
+    --bronze-b: 108;
   }
   100% {
-    --beige-r: 241; --beige-g: 228; --beige-b: 211;
-    --rose-r: 214; --rose-g: 176; --rose-b: 186;
-    --bronze-r: 198; --bronze-g: 168; --bronze-b: 152;
+    --beige-r: 241;
+    --beige-g: 228;
+    --beige-b: 211;
+    --rose-r: 214;
+    --rose-g: 176;
+    --rose-b: 186;
+    --bronze-r: 198;
+    --bronze-g: 168;
+    --bronze-b: 152;
   }
 }
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
 }
