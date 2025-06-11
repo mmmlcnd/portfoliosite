@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ポートフォリオ グリッド構成</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: sans-serif;
+        background: #fdfdfd;
+        padding: 2rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .item {
+        position: relative;
+        background: #eee;
+        aspect-ratio: 4 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .item img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .label {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="margin-bottom: 1.5rem">ポートフォリオ作品一覧</h1>
+    <div class="grid">
+      <div class="item">
+        <img src="yourimage1.jpg" alt="Mew & I" />
+        <div class="label">Mew & I</div>
+      </div>
+      <div class="item">
+        <img src="yourimage2.jpg" alt="Sample Cafe" />
+        <div class="label">Sample Cafe</div>
+      </div>
+      <div class="item">
+        <img src="yourimage3.jpg" alt="Graphic Design" />
+        <div class="label">Graphic Design</div>
+      </div>
+      <div class="item">
+        <img src="yourimage4.jpg" alt="About Me 装飾" />
+        <div class="label">About Me</div>
+      </div>
+    </div>
+  </body>
+</html>
