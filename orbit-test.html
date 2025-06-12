@@ -2,47 +2,58 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>円周上の画像アニメーション</title>
+    <title>左半円アニメーション</title>
     <style>
+      html,
       body {
         margin: 0;
+        padding: 0;
+        height: 100%;
         background: #f0f0f0;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
       }
       .wrapper {
         overflow: hidden;
-        width: 300px;
-        height: 400px;
+        width: 90vw;
+        max-width: 400px;
+        aspect-ratio: 1/1;
         background: white;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       }
       canvas {
         display: block;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <canvas id="orbitCanvas" width="400" height="400"></canvas>
+      <canvas id="orbitCanvas"></canvas>
     </div>
 
     <script>
       const canvas = document.getElementById('orbitCanvas');
       const ctx = canvas.getContext('2d');
 
-      const centerX = 200;
-      const centerY = 200;
-      const radius = 120;
-      const imageSize = 40;
+      function resizeCanvas() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
 
-      const angleMargin = Math.asin((imageSize / 2 + 4) / radius);
-      const totalArc = 2 * Math.PI * 0.8;
-      const startAngle = Math.PI - totalArc / 2 + angleMargin;
-      const endAngle = Math.PI + totalArc / 2 - angleMargin;
-      const angleRange = endAngle - startAngle;
+      let centerX, centerY, radius, imageSize;
+      function updateMetrics() {
+        centerX = canvas.width / 2;
+        centerY = canvas.height / 2;
+        radius = canvas.width * 0.35;
+        imageSize = canvas.width * 0.1;
+      }
+
+      updateMetrics();
 
       const imageSrcs = [
         'images/websitethumbnail1.png',
@@ -54,63 +65,90 @@
       const images = [];
       const orbitObjects = [];
 
+      const totalArc = Math.PI * 0.8;
+      const startAngle = Math.PI / 2 + Math.PI * 0.1;
+      const endAngle = (Math.PI * 3) / 2 - Math.PI * 0.1;
+      const angleRange = endAngle - startAngle;
+
       imageSrcs.forEach((src, i) => {
         const img = new Image();
         img.crossOrigin = 'anonymous';
         img.src = src;
         images.push(img);
-
-        const initialAngle =
-          startAngle + (angleRange * (i + 1)) / (imageSrcs.length + 1);
-        orbitObjects.push({
-          img,
-          angle: initialAngle,
-          speed: 0.01 + Math.random() * 0.005 * (Math.random() > 0.5 ? 1 : -1),
-        });
+        orbitObjects.push({ img });
       });
 
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const spacing = 1 / (imageSrcs.length + 1);
+      let baseOffset = 0;
+      let direction = 1;
+      const speedFactor = 0.0025;
 
-        // 円弧描画
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        updateMetrics();
+
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, startAngle, endAngle);
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
         ctx.stroke();
 
-        orbitObjects.forEach((obj) => {
-          // 端に達したら方向を反転
-          if (obj.angle <= startAngle || obj.angle >= endAngle) {
-            obj.speed *= -1;
-          }
-
-          obj.angle += obj.speed;
-
-          const x = centerX + radius * Math.cos(obj.angle);
-          const y = centerY + radius * Math.sin(obj.angle);
-
-          ctx.save();
-          ctx.translate(x, y);
+        orbitObjects.forEach((obj, i) => {
+          const fraction = (baseOffset + spacing * (i + 1)) % 1;
+          const clamped = Math.max(0, Math.min(1, fraction));
+          const angle = startAngle + angleRange * clamped;
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
           ctx.drawImage(
             obj.img,
-            -imageSize / 2,
-            -imageSize / 2,
+            x - imageSize / 2,
+            y - imageSize / 2,
             imageSize,
             imageSize
           );
-          ctx.restore();
         });
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(draw);
       }
+
+      function updateOffset(delta) {
+        baseOffset += delta * direction;
+        if (baseOffset <= -spacing) {
+          baseOffset = -spacing;
+          direction = 1;
+        } else if (baseOffset >= 1 - spacing * imageSrcs.length) {
+          baseOffset = 1 - spacing * imageSrcs.length;
+          direction = -1;
+        }
+      }
+
+      let lastY = null;
+      function handleMove(y) {
+        if (lastY !== null) {
+          const dy = y - lastY;
+          updateOffset(dy * speedFactor);
+        }
+        lastY = y;
+      }
+
+      canvas.addEventListener('mousemove', (e) => handleMove(e.clientY));
+      canvas.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          handleMove(e.touches[0].clientY);
+        }
+      });
+      canvas.addEventListener('mouseleave', () => (lastY = null));
+      canvas.addEventListener('touchend', () => (lastY = null));
+
+      window.addEventListener('scroll', () => updateOffset(0.01));
 
       let loaded = 0;
       images.forEach((img) => {
         img.onload = () => {
           loaded++;
-          if (loaded === images.length) animate();
+          if (loaded === images.length) {
+            requestAnimationFrame(draw);
+          }
         };
       });
     </script>
