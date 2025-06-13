@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/* base
+================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #303437;
+  font-family: YuMincho, 'Yu Mincho', 'Hiragino Mincho ProN', 'serif';
+  position: relative;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #303437;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5b0d9f;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+span {
+  display: block;
+}
+
+.ballet-heading {
+  font-family: 'Ballet', cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* layout
+================================ */
+
+#wrap {
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+header {
+  position: relative;
+}
+
+/* .menu {
+
+} */
+
+.menuBtn {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  border-radius: 80px;
+  border: solid #666666 2px;
+  text-align: center;
+  line-height: 35px;
+
+  position: absolute;
+  top: 50px;
+  right: 0%;
+  position: absolute;
+  top: 20px;
+  right: 10%;
+}
+
+#gNavi {
+  display: none;
+}
+
+.logoArea {
+  width: 400px;
+  height: 300px;
+  /* background-color: aqua; */
+}
+
+.handDeco {
+  /* width: 300px; */
+  /* height: 300px; */
+  position: absolute;
+  top: 100px;
+  /* background-color: rgb(80, 123, 160); */
+}
+
+h1.ballet-heading {
+  font-size: 2rem;
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-bigger {
+  font-size: 3rem;
+  position: absolute;
+  left: 20%;
+}
+
+.fixed-box {
+  width: 400px;
+  height: 750px;
+  background-color: white;
+  border-radius: 70px;
+  border: solid #666666 2px;
+
+  position: fixed;
+  top: 450px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnailImage {
+  width: 100px;
+}
+
+#pageTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+}
+
+/* drawer */
+#drawer-checkbox {
+  display: none;
+}

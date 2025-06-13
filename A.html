@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mayu's Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: #f3f4f6;
+        color: #333;
+      }
+
+      #intro {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      #intro h1 {
+        font-size: 3rem;
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      header {
+        height: 100vh;
+        background: url('https://source.unsplash.com/1600x900/?creative,design')
+          center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        position: relative;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        max-width: 800px;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 1.5rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(10px);
+        }
+      }
+
+      main {
+        padding: 60px 20px;
+        opacity: 0;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 16px;
+      }
+
+      .card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Intro -->
+    <div id="intro">
+      <h1>Mayu’s Portfolio</h1>
+    </div>
+
+    <!-- Hero -->
+    <header class="main-content">
+      <h1>
+        あなたの想いを、デザインで届ける。<br />Portfolio of Creativity & Code
+      </h1>
+      <div class="scroll-down">↓</div>
+    </header>
+
+    <!-- Main -->
+    <main class="main-content">
+      <h2>My Works</h2>
+      <div class="card-container">
+        <div class="card">
+          <img
+            src="https://via.placeholder.com/400x200?text=Project+1"
+            alt="Project 1"
+          />
+          <h3>Project One</h3>
+          <p>WebアプリケーションのUIデザインを担当。</p>
+        </div>
+        <div class="card">
+          <img
+            src="https://via.placeholder.com/400x200?text=Project+2"
+            alt="Project 2"
+          />
+          <h3>Project Two</h3>
+          <p>ReactとFirebaseを使った個人開発。</p>
+        </div>
+        <div class="card">
+          <img
+            src="https://via.placeholder.com/400x200?text=Project+3"
+            alt="Project 3"
+          />
+          <h3>Project Three</h3>
+          <p>ポートフォリオサイトのリニューアル。</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline();
+
+      // Intro表示
+      tl.to('#intro h1', {
+        duration: 1.5,
+        opacity: 1,
+        scale: 1.2,
+        ease: 'power2.out',
+      })
+        .to('#intro', {
+          duration: 1,
+          opacity: 0,
+          ease: 'power1.inOut',
+          delay: 0.5,
+        })
+        .set('#intro', { display: 'none' })
+        .to('.main-content', {
+          opacity: 1,
+          duration: 1.2,
+          ease: 'power2.out',
+          onComplete: () => {
+            // カードアニメーションをここで開始
+            document.querySelectorAll('.card').forEach((card) => {
+              gsap.fromTo(
+                card,
+                { opacity: 0, y: 40 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  duration: 1,
+                  ease: 'power2.out',
+                  scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
+                  },
+                }
+              );
+            });
+
+            ScrollTrigger.refresh(); // ← 重要
+          },
+        });
+    </script>
+  </body>
+</html>
