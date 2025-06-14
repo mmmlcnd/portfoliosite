@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>画像ごとのモーダル</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+
+      .image-grid {
+        display: flex;
+        gap: 20px;
+      }
+
+      .image-grid img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal {
+        display: none; /* 初期状態では非表示 */
+        position: fixed;
+        z-index: 1000;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+      }
+
+      .modal-content img {
+        width: 100%;
+        border-radius: 6px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .modal p {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>画像クリックでモーダル表示</h2>
+
+    <div class="image-grid">
+      <img
+        src="https://via.placeholder.com/150"
+        data-modal="modal1"
+        alt="画像1"
+      />
+      <img
+        src="https://via.placeholder.com/150/ff7f7f"
+        data-modal="modal2"
+        alt="画像2"
+      />
+      <img
+        src="https://via.placeholder.com/150/87ceeb"
+        data-modal="modal3"
+        alt="画像3"
+      />
+    </div>
+
+    <!-- モーダル1 -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" data-close>&times;</span>
+        <img src="https://via.placeholder.com/300" alt="拡大画像1" />
+        <p>これは画像1の説明です。</p>
+      </div>
+    </div>
+
+    <!-- モーダル2 -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" data-close>&times;</span>
+        <img src="https://via.placeholder.com/300/ff7f7f" alt="拡大画像2" />
+        <p>これは画像2の説明です。</p>
+      </div>
+    </div>
+
+    <!-- モーダル3 -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" data-close>&times;</span>
+        <img src="https://via.placeholder.com/300/87ceeb" alt="拡大画像3" />
+        <p>これは画像3の説明です。</p>
+      </div>
+    </div>
+
+    <script>
+      // モーダルを開く
+      document.querySelectorAll('img[data-modal]').forEach((img) => {
+        img.addEventListener('click', () => {
+          const modalId = img.dataset.modal;
+          document.getElementById(modalId).style.display = 'flex';
+        });
+      });
+
+      // モーダルを閉じる（×または背景クリック）
+      document.querySelectorAll('.modal').forEach((modal) => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal || e.target.dataset.close !== undefined) {
+            modal.style.display = 'none';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -6,7 +6,7 @@
 }
 
 body {
-  color: #303437;
+  color: #000000;
   font-family: YuMincho, 'Yu Mincho', 'Hiragino Mincho ProN', 'serif';
   position: relative;
   line-height: 1.5;
@@ -133,27 +133,74 @@ h1.ballet-heading {
 }
 
 .contentsArea {
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   width: 100%;
   padding: 40px 0;
 }
 
 .contentsHeading {
-  background-color: #75d895;
+  background-color: #e4afbe;
   border-radius: 80px;
   width: 100px;
-  height: 30px;
+  height: 35px;
   text-align: center;
-  line-height: 30px;
+  line-height: 35px;
   margin: 0 auto;
 }
 
 .thumbnailItem {
   display: flex;
+  justify-content: center;
+  padding: 35px 0;
 }
 
 .thumbnailImage {
-  width: 100px;
+  border: dotted #666666 1px;
+  width: 300px;
+  margin: 0 0 20px 0;
+}
+
+.thumbnailText {
+  border-left: solid #666666 2px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.thumbnailTitle {
+  font-size: 1rem;
+  padding: 0 0 5px 0;
+}
+
+.thumbnailDescripition {
+  font-size: 0.7rem;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  position: fixed;
+  inset: 0; /* 上下左右すべて「0」位置 */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: #fff;
+  border-radius: 30px;
+  width: 400px;
+  padding: 20px;
+}
+
+.modalTagArea {
+  display: flex;
+}
+
+.tag {
+  border-radius: 3px;
+  background-color: #e4afbe;
+  width: 70px;
+  text-align: center;
 }
 
 #pageTop {

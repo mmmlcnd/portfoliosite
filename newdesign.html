@@ -47,6 +47,9 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script> -->
+
+    <!-- Tailwind JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body id="top" class="background">
@@ -97,53 +100,46 @@
         <!-- /.fixed-box -->
         <!-- コンテンツ -->
         <div id="contentsWrap">
+          <!-- WEBサイト -->
           <section id="website" class="contentsArea">
             <h2 class="contentsHeading">Web Site</h2>
             <div class="thumbnailArea">
               <div class="thumbnailItem">
-                <a
-                  href="https://mmewandii.stars.ne.jp/wp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <button type="button" data-modal="modal1">
                   <img
                     src="images/websitethumbnail1.png"
-                    alt="WordPressサイトサムネイル"
+                    alt="WEBサイト「Mew and I」サムネイル"
                     class="thumbnailImage"
                   />
-                  <h3 class="thumbnailTitle">WordPressサイト</h3>
-                  <p class="thumbnailText">aaaaaaaaaa</p>
-                </a>
-              </div>
-              <!--/.thumbnailItem-->
-              <div class="thumbnailItem">
-                <a
-                  href="https://mmewandii.stars.ne.jp/wp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="images/websitethumbnail1.png"
-                    alt="WordPressサイトサムネイル"
-                    class="thumbnailImage"
-                  />
-                  <h3 class="thumbnailTitle">WordPressサイト</h3>
-                </a>
-              </div>
-              <!--/.thumbnailItem-->
-              <div class="thumbnailItem">
-                <a
-                  href="https://mmewandii.stars.ne.jp/wp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="images/websitethumbnail1.png"
-                    alt="WordPressサイトサムネイル"
-                    class="thumbnailImage"
-                  />
-                  <h3 class="thumbnailTitle">WordPressサイト</h3>
-                </a>
+                  <div class="thumbnailText">
+                    <h3 class="thumbnailTitle">
+                      WordPressオリジナルテーマサイト
+                    </h3>
+                    <p class="thumbnailDescripition">
+                      保護猫譲渡をテーマにしたサイト（自主制作・架空サイト）
+                    </p>
+                  </div>
+                  <!--/.thumbnailText-->
+                </button>
+                <!-- モーダル1 -->
+                <div id="modal1" class="modal">
+                  <div class="modalContent">
+                    <span class="close-btn" data-close>&times;</span>
+                    <img
+                      src="images/websitethumbnail1.png"
+                      alt="WEBサイト「Mew and I」サムネイル"
+                      class="thumbnailImage modalImage"
+                    />
+                    <p class="modalDescription">
+                      WordPressで保護猫譲渡サイトをオリジナルテーマで作成しました。
+                    </p>
+                    <div class="modalTagArea">
+                      <p class="tag">自主制作</p>
+                      <p class="tag">PHP</p>
+                      <p class="tag">JavaScript</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!--/.thumbnailItem-->
             </div>
@@ -151,85 +147,8 @@
           </section>
           <!--/#website-->
 
-          <section id="design" class="contentsArea">
-            <h2 class="contentsHeading">Web Site</h2>
-            <div class="thumbnailArea">
-              <div class="thumbnailItem">
-                <a
-                  href="https://mmewandii.stars.ne.jp/wp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="images/websitethumbnail1.png"
-                    alt="WordPressサイトサムネイル"
-                    class="thumbnailImage"
-                  />
-                  <h3 class="thumbnailTitle">WordPressサイト</h3>
-                </a>
-              </div>
-              <!--/.thumbnailItem-->
-              <div class="thumbnailItem">
-                <a
-                  href="https://mmewandii.stars.ne.jp/wp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="images/websitethumbnail1.png"
-                    alt="WordPressサイトサムネイル"
-                    class="thumbnailImage"
-                  />
-                  <h3 class="thumbnailTitle">WordPressサイト</h3>
-                </a>
-              </div>
-              <!--/.thumbnailItem-->
-              <div class="thumbnailItem">
-                <a
-                  href="https://mmewandii.stars.ne.jp/wp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="images/websitethumbnail1.png"
-                    alt="WordPressサイトサムネイル"
-                    class="thumbnailImage"
-                  />
-                  <h3 class="thumbnailTitle">WordPressサイト</h3>
-                </a>
-              </div>
-              <!--/.thumbnailItem-->
-            </div>
-            <!--/.thumbnailArea-->
-          </section>
+          <!-- デザイン -->
           <!--/#design-->
-
-          <section id="aboutme" class="contentArea">
-            <h3 class="animated-heading">About Me</h3>
-            <div class="resumeContainer">
-              <section class="textArea">
-                <h3 class="circle-heading">経歴</h3>
-                <p class="description">
-                  職業訓練校でレスポンシブデザイン対応のWordPressオリジナルテーマ制作を学ぶ<br />
-                  WEB制作会社での企業実習においてコーディングやSEO対策も経験<br />
-                  前職はアプリディレクターとして、ネイティブ・WEBアプリケーション制作の<br />
-                  企画・要件定義からテストまでに関わる
-                </p>
-              </section>
-              <section class="textArea">
-                <h3 class="circle-heading">使用言語<br />DB</h3>
-                <p class="description shortDescription">
-                  HTML5・CSS3・JavaScript・jQuery・PHP・MySQL
-                </p>
-              </section>
-              <section class="textArea">
-                <h3 class="circle-heading">使用アプリ</h3>
-                <p class="description shortDescription">
-                  Illustrator・Photoshop・Dreamweaver・VS CODE
-                </p>
-              </section>
-            </div>
-          </section>
         </div>
         <!--/#contentsWrap-->
       </main>
@@ -241,5 +160,14 @@
       </footer>
     </div>
     <!--/#wrap-->
+
+    <script>
+      document.querySelectorAll('button[data-modal]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const modalId = button.dataset.modal;
+          document.getElementById(modalId).style.display = 'flex';
+        });
+      });
+    </script>
   </body>
 </html>
