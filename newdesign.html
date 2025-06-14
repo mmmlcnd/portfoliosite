@@ -124,7 +124,7 @@
                 <!-- モーダル1 -->
                 <div id="modal1" class="modal">
                   <div class="modalContent">
-                    <span class="close-btn" data-close>&times;</span>
+                    <span class="closeBtn" data-close>&times;</span>
                     <img
                       src="images/websitethumbnail1.png"
                       alt="WEBサイト「Mew and I」サムネイル"
@@ -161,11 +161,22 @@
     </div>
     <!--/#wrap-->
 
+    <!-- モーダル -->
     <script>
+      // 表示
       document.querySelectorAll('button[data-modal]').forEach((button) => {
         button.addEventListener('click', () => {
           const modalId = button.dataset.modal;
           document.getElementById(modalId).style.display = 'flex';
+        });
+      });
+
+      // 閉じる（モーダル外部または閉じるボタンをクリック）
+      document.querySelectorAll('.modal').forEach((modal) => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal || e.target.dataset.close !== undefined) {
+            modal.style.display = 'none';
+          }
         });
       });
     </script>

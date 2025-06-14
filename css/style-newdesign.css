@@ -128,7 +128,7 @@ h1.ballet-heading {
 }
 
 #contentsWrap {
-  width: 380px;
+  width: 330px;
   margin: 0 auto;
 }
 
@@ -146,12 +146,15 @@ h1.ballet-heading {
   text-align: center;
   line-height: 35px;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .thumbnailItem {
+  border-top: solid #666666 1px;
+  border-bottom: solid #666666 1px;
   display: flex;
   justify-content: center;
-  padding: 35px 0;
+  padding: 20px 0;
 }
 
 .thumbnailImage {
