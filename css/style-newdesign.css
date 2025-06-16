@@ -34,11 +34,13 @@ a:hover {
 }
 
 .tag-btn {
+  display: inline-block;
   border-radius: 80px;
   border: solid #666666 2px;
   text-align: center;
   padding: 5px 8px;
   margin: 5px;
+  font-size: 0.8rem;
 }
 
 img {
@@ -161,6 +163,11 @@ h1.ballet-heading {
   margin-bottom: 20px;
 }
 
+.modalOpen {
+  position: relative;
+  z-index: 10;
+}
+
 .thumbnailImage {
   border: dotted #666666 1px;
   width: 80%;
@@ -172,6 +179,8 @@ h1.ballet-heading {
   border-left: solid #666666 2px;
   width: 100%;
   padding: 0 10px;
+  /* display: flex; */
+  /* flex-direction: column; */
   /* justify-content: left; */
 }
 
@@ -198,6 +207,7 @@ h1.ballet-heading {
   background-color: #fff;
   border-radius: 30px;
   width: 400px;
+  max-height: 650px;
   padding: 20px;
 }
 
@@ -205,27 +215,61 @@ h1.ballet-heading {
   padding: 30px 0;
 }
 
+.modalHeading {
+  border-left: solid #666666 3px;
+  font-size: 1.3rem;
+  margin: 0 0 30px 15px;
+}
+
+.modalDescription {
+  padding: 30px 0;
+  width: 90%;
+  margin: 0 auto;
+}
+
 .modalTagArea {
   display: flex;
+  padding: 10px;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .tag {
-  display: inline-block;
-  border-radius: 50px;
+  border: none;
   background-color: #e4afbe;
-  /* width: 70px; */
-  text-align: center;
   padding: 5px 8px;
   margin: 5px;
 }
 
+.modalLinkArea {
+  padding: 10px;
+  width: 85%;
+  border-top: none;
+  margin: 0 auto;
+}
+
 .link {
-  display: inline-block;
   background-color: #c0afe4;
-  /* width: 70px; */
-  text-align: center;
   padding: 5px 8px;
   margin: 5px;
+}
+
+.scroll {
+  text-align: center;
+  position: relative;
+  /* display: inline-block; */
+}
+
+.scroll::after {
+  content: '';
+  width: 2px;
+  height: 20px;
+  background-color: #666666;
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 #pageTop {
