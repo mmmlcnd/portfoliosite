@@ -80,7 +80,7 @@
         <aside id="menu">
           <input type="checkbox" id="drawer-checkbox" />
           <label id="drawer-icon" for="drawer-checkbox">
-            <span class="menuBtn">menu</span>
+            <span class="menuBtn tag-btn">menu</span>
           </label>
           <label id="drawer-close" for="drawer-checkbox"></label>
           <nav id="gNavi">
@@ -104,7 +104,7 @@
           <section id="website" class="contentsArea">
             <h2 class="contentsHeading">Web Site</h2>
             <div class="thumbnailArea">
-              <div class="thumbnailItem">
+              <div class="thumbnailItem border">
                 <button type="button" data-modal="modal1">
                   <img
                     src="images/websitethumbnail1.png"
@@ -121,29 +121,39 @@
                   </div>
                   <!--/.thumbnailText-->
                 </button>
-                <!-- モーダル1 -->
-                <div id="modal1" class="modal">
-                  <div class="modalContent">
-                    <span class="closeBtn" data-close>&times;</span>
-                    <img
-                      src="images/websitethumbnail1.png"
-                      alt="WEBサイト「Mew and I」サムネイル"
-                      class="thumbnailImage modalImage"
-                    />
-                    <p class="modalDescription">
-                      WordPressで保護猫譲渡サイトをオリジナルテーマで作成しました。
-                    </p>
-                    <div class="modalTagArea">
-                      <p class="tag">自主制作</p>
-                      <p class="tag">PHP</p>
-                      <p class="tag">JavaScript</p>
-                    </div>
-                  </div>
-                </div>
               </div>
               <!--/.thumbnailItem-->
             </div>
             <!--/.thumbnailArea-->
+            <!-- モーダル1 -->
+            <div id="modal1" class="modal">
+              <div class="modalBox">
+                <span class="closeBtn" data-close>&times;</span>
+                <div class="modalContent border">
+                  <img
+                    src="images/websitethumbnail1.png"
+                    alt="WEBサイト「Mew and I」サムネイル"
+                    class="thumbnailImage modalImage"
+                  />
+                  <p class="modalDescription">
+                    WordPressで保護猫譲渡サイトをオリジナルテーマで作成しました。
+                  </p>
+                  <div class="modalTagArea">
+                    <p class="tag tag-btn">自主制作</p>
+                    <p class="tag tag-btn">PHP</p>
+                    <p class="tag tag-btn">JavaScript</p>
+                  </div>
+                  <div class="modalLinkArea">
+                    <a><span class="link tag-btn">→Demoサイト</span></a>
+                    <a><span class="link tag-btn">→Git</span></a>
+                    <a><span class="link tag-btn">→企画書</span></a>
+                  </div>
+                </div>
+                <!--/.modalContent-->
+              </div>
+              <!-- /.modalBox -->
+            </div>
+            <!-- /.modal -->
           </section>
           <!--/#website-->
 
