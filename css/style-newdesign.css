@@ -199,18 +199,17 @@ h1.ballet-heading {
   border-left: solid #666666 2px;
   width: 100%;
   padding: 0 10px;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: left; */
 }
 
 .thumbnailTitle {
   font-size: 1rem;
   padding: 0 0 5px 0;
+  text-align: left;
 }
 
 .thumbnailDescripition {
   font-size: 0.7rem;
+  text-align: left;
 }
 
 .modal {
