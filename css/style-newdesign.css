@@ -217,10 +217,10 @@ h1.ballet-heading {
 
 .modal {
   background-color: rgba(0, 0, 0, 0.2);
-  display: none;
   position: fixed;
   inset: 0; /* 上下左右すべて「0」位置 */
   z-index: 1000;
+  display: none;
   justify-content: center;
   align-items: center;
 
