@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SVG ゆっくり揺れる</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f0f8ff;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="200" height="100">
+      <circle id="circle" cx="100" cy="50" r="20" fill="skyblue" />
+    </svg>
+
+    <script>
+      gsap.to('#circle', {
+        duration: 2,
+        attr: { cx: 120 }, // ✅ ここ重要！SVG属性は `attr` オブジェクトの中に書く
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+    </script>
+  </body>
+</html>
