@@ -74,10 +74,6 @@ header {
   position: relative;
 }
 
-/* .menu {
-
-} */
-
 .menuBtn {
   width: 100px;
   height: 40px;
@@ -93,8 +89,54 @@ header {
   right: 10%;
 }
 
+/* drawer */
+
+#drawerCheckbox {
+  display: none;
+}
+
+#drawerClose {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 600;
+}
+
+#drawerCheckbox:checked ~ #drawerClose,
+#drawerCheckbox:checked ~ #gNavi {
+  display: block;
+}
+
 #gNavi {
   display: none;
+  font-size: 1.3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 400px;
+  background: #fff;
+  z-index: 1000;
+  padding-top: 100px;
+  animation: fadeIn 0.5s cubic-bezier(0.8, 1, 0.68, 1) forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.gNaviItem {
+  margin: 20px 0;
+  text-align: center;
 }
 
 .fixedBox {
@@ -326,46 +368,6 @@ h1.ballet-heading {
   bottom: 20px;
   right: 20px;
   width: 30px;
-}
-
-/* drawer */
-
-#drawerCheckbox {
-  display: none;
-}
-
-#drawerClose {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 600;
-}
-
-#drawerCheckbox:checked ~ #drawerClose,
-#drawerCheckbox:checked ~ #gNavi {
-  display: block;
-}
-
-#gNavi {
-  font-size: 1.3rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 400px;
-  background: #fff;
-  transition: right 0.8s ease;
-  z-index: 1000;
-  padding-top: 100px;
-}
-
-.gNaviItem {
-  margin: 20px 0;
-  text-align: center;
 }
 
 footer {
